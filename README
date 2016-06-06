@@ -32,3 +32,19 @@ To update this distribution manually, run .\update_depot_tools.bat on Windows,
 or ./update_depot_tools on Linux or Mac.
 
 To disable automatic updating, set the environment variable DEPOT_TOOLS_UPDATE=0
+
+
+```shell
+$ git clone https://github.com/nctusenselab/depot_tools
+$ export PATH=`pwd`/depot_tools:"$PATH"
+$ export JAVA_HOME="/usr/lib/jvm/java-6-oracle"
+$ export GYP_DEFINES="OS=android"
+$ mkdir webrtc_svmp && cd webrtc_svmp
+$ fetch webrtc_android
+
+$ python webrtc/build/gyp_webrtc
+$ ninja -C out/Debug -j 4 libjingle_peerconnection_so
+$ ninja -C out/Debug -j 4 libjingle_peerconnection_jar
+$ $PWD/src/third_party/android_tools/ndk//toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-strip out/Debug/libjingle_peerconnection_so.so
+```
+
