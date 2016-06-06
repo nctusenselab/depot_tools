@@ -14,7 +14,7 @@ class WebRTC(config_util.Config):
 
   @staticmethod
   def fetch_spec(props):
-    url = 'https://github.com/SVMP/webrtc.git'
+    url = 'https://github.com/nctusenselab/webrtc.git'
     spec = {
       'solutions': [
         {
